@@ -1,0 +1,187 @@
+<!-- About Hero -->
+<section class="about-hero py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="position-relative">
+          <img src="assets/images/about/about.jpeg"
+               alt="Trisyam Farms Mushroom Cultivation"
+               class="img-fluid rounded shadow-lg main-image">
+          <!--<div class="overlay-card bg-success text-white p-4 rounded shadow position-absolute bottom-0 end-0 translate-middle">
+            <h4 class="mb-0">5+ Years</h4>
+            <p class="mb-0">of Farming Experience</p>
+          </div>-->
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-success mb-4">
+          About Trisyam Farms
+        </h1>
+        <p class="lead text-dark mb-4">
+          Trisyam Farms is a mushroom farming venture focused on producing premium
+          <strong class="text-success">Oyster Mushrooms</strong> using modern and eco-friendly methods.
+        </p>
+        <p class="mb-4">
+          Located in the fertile lands of Sangli, Maharashtra, we are committed to providing fresh,
+          healthy, and chemical-free mushrooms while maintaining consistent quality throughout the year.
+          Our farm combines traditional farming wisdom with modern techniques to deliver the best
+          produce to our customers.
+        </p>
+        <div class="stats d-flex gap-4 mb-4">
+          <div class="text-center">
+            <h3 class="text-success fw-bold">1000+</h3>
+            <p class="text-muted mb-0">Happy Customers</p>
+          </div>
+          <div class="text-center">
+            <h3 class="text-success fw-bold">500kg+</h3>
+            <p class="text-muted mb-0">Monthly Production</p>
+          </div>
+          <div class="text-center">
+            <h3 class="text-success fw-bold">24/7</h3>
+            <p class="text-muted mb-0">Quality Monitoring</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Beliefs -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Our Core Beliefs</h2>
+      <p class="text-muted">Principles that guide everything we do</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" *ngFor="let belief of beliefs">
+        <div class="card h-100 border-0 shadow-sm card-hover">
+          <div class="card-body p-4 text-center">
+            <div class="icon-wrapper-lg bg-success text-white mb-4 mx-auto">
+              <i class="bi {{belief.icon}} fs-3"></i>
+            </div>
+            <h5 class="card-title text-success mb-3">{{belief.title}}</h5>
+            <p class="card-text text-muted">{{belief.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <div class="card border-success h-100">
+          <div class="card-body p-5">
+            <div class="d-flex align-items-center mb-4">
+              <div class="icon-wrapper-lg bg-success text-white me-3">
+                <i class="bi bi-bullseye fs-3"></i>
+              </div>
+              <h3 class="card-title mb-0 text-success">Our Mission</h3>
+            </div>
+            <p class="card-text fs-5">
+              To revolutionize mushroom farming by providing consistently high-quality,
+              chemical-free Oyster Mushrooms through sustainable and transparent farming practices.
+              We aim to promote healthy eating while supporting local communities.
+            </p>
+            <ul class="list-unstyled mt-4">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Promote sustainable agriculture</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ensure food safety and quality</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Support local farmers and economy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card border-success h-100">
+          <div class="card-body p-5">
+            <div class="d-flex align-items-center mb-4">
+              <div class="icon-wrapper-lg bg-success text-white me-3">
+                <i class="bi bi-eye fs-3"></i>
+              </div>
+              <h3 class="card-title mb-0 text-success">Our Vision</h3>
+            </div>
+            <p class="card-text fs-5">
+              To become the most trusted name in mushroom farming across Maharashtra,
+              recognized for our commitment to quality, sustainability, and customer satisfaction.
+              We envision a future where everyone has access to fresh, nutritious mushrooms.
+            </p>
+            <ul class="list-unstyled mt-4">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Expand to new markets</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Innovate farming techniques</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Create employment opportunities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey Timeline -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Our Journey</h2>
+      <p class="text-muted">Milestones in our farming journey</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let milestone of milestones">
+        <div class="timeline-marker bg-success"></div>
+        <div class="timeline-content">
+          <div class="timeline-date text-success fw-bold">{{milestone.year}}</div>
+          <h4 class="timeline-title">{{milestone.title}}</h4>
+          <p class="timeline-description text-muted">{{milestone.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Meet Our Farmers</h2>
+      <p class="text-muted">Dedicated professionals behind your fresh mushrooms</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm card-hover text-center">
+          <div class="card-body p-4">
+            <div class="team-img mx-auto mb-4">
+              <i class="bi bi-person-circle text-success fs-1"></i>
+            </div>
+            <h5 class="card-title text-success">Expert Cultivators</h5>
+            <p class="card-text text-muted">Trained professionals with years of experience in mushroom farming</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm card-hover text-center">
+          <div class="card-body p-4">
+            <div class="team-img mx-auto mb-4">
+              <i class="bi bi-clipboard-check text-success fs-1"></i>
+            </div>
+            <h5 class="card-title text-success">Quality Inspectors</h5>
+            <p class="card-text text-muted">Ensuring every mushroom meets our strict quality standards</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm card-hover text-center">
+          <div class="card-body p-4">
+            <div class="team-img mx-auto mb-4">
+              <i class="bi bi-truck text-success fs-1"></i>
+            </div>
+            <h5 class="card-title text-success">Delivery Team</h5>
+            <p class="card-text text-muted">Ensuring timely delivery of fresh mushrooms to our customers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

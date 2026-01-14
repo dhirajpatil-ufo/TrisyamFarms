@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    <!-- Updated Logo Section -->
+    <a class="navbar-brand fw-bold text-success d-flex align-items-center"
+       routerLink="/"
+       (click)="closeMenu()">
+      <!-- Logo Image -->
+      <img src="assets/images/logo/logo.png"
+           alt="Trisyam Farms Logo"
+           class="logo-img me-2"
+           height="40">
+      <!-- Brand Text -->
+      <div class="brand-text">
+        <div class="brand-name">Trisyam Farms</div>
+        <div class="brand-tagline small text-muted d-none d-md-block">
+          Fresh Oyster Mushrooms
+        </div>
+      </div>
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            (click)="toggleMenu()"
+            [attr.aria-expanded]="isMenuOpen"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="isMenuOpen">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngFor="let item of navItems">
+          <a class="nav-link d-flex align-items-center"
+             [routerLink]="item.path"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.path === '/'}"
+             (click)="closeMenu()">
+            <i class="bi {{item.icon}} me-2"></i>
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="d-lg-none mt-3">
+        <a href="tel:7631177171" class="btn btn-success w-100 mb-2" (click)="closeMenu()">
+          <i class="bi bi-telephone-fill me-2"></i>Call Now
+        </a>
+        <a href="https://wa.me/917631177171"
+           class="btn btn-outline-success w-100"
+           target="_blank"
+           (click)="closeMenu()">
+          <i class="bi bi-whatsapp me-2"></i>WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="d-none d-lg-block">
+      <a href="tel:7631177171" class="btn btn-success me-2">
+        <i class="bi bi-telephone-fill me-2"></i>7631177171
+      </a>
+      <a href="https://wa.me/917631177171"
+         class="btn btn-outline-success"
+         target="_blank">
+        <i class="bi bi-whatsapp me-2"></i>WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div style="height: 76px;"></div> <!-- Spacer for fixed navbar -->

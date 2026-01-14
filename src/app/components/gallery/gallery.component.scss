@@ -1,0 +1,35 @@
+.gallery-hero {
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+}
+
+.btn-outline-success.active {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  img {
+    transition: transform 0.5s;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn-outline-success {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

@@ -1,0 +1,158 @@
+<!-- Hero Section -->
+<section class="hero-section position-relative">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold text-white mb-4 animate-fade-in">
+          Trisyam Farms
+          <span class="d-block h3 text-light mt-2">Fresh Oyster Mushrooms | Naturally Grown</span>
+        </h1>
+        <p class="lead text-white mb-4 animate-fade-in delay-1">
+          A dedicated farm specializing in the cultivation of fresh and high-quality Oyster Mushrooms.
+          We focus on clean, sustainable, and hygienic farming practices to deliver nutritious
+          mushrooms for households, hotels, restaurants, and bulk buyers.
+        </p>
+        <div class="row g-3 animate-fade-in delay-2">
+          <div class="col-md-6">
+            <div class="bg-white p-4 rounded shadow-sm">
+              <h5 class="text-success mb-3">📍 Farm Location</h5>
+              <p class="mb-0">
+                Plot No. 2106, Tasgaon–Kavth Mahankal Road,<br>
+                Yogewadi, District Sangli – 416408
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bg-white p-4 rounded shadow-sm">
+              <h5 class="text-success mb-3">📞 Contact Us</h5>
+              <a href="tel:7631177171" class="btn btn-success btn-lg w-100 mb-2">
+                <i class="bi bi-telephone-fill"></i> 7631177171
+              </a>
+              <a href="https://wa.me/917631177171" class="btn btn-outline-success btn-lg w-100" target="_blank">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 text-primary">Why Choose Trisyam Farms?</h2>
+    <div class="row g-4">
+      <div class="col-md-4 col-sm-6" *ngFor="let benefit of benefits">
+        <div class="card h-100 border-0 shadow-sm text-center hover-lift">
+          <div class="card-body p-4">
+            <div class="icon-wrapper mb-3">
+              <i class="bi {{benefit.icon}} text-success fs-1"></i>
+            </div>
+            <h5 class="card-title text-success">{{benefit.title}}</h5>
+            <p class="card-text text-muted">{{benefit.desc}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Material Gallery Carousel - FIXED -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success display-5 fw-bold mb-3">Farm Gallery</h2>
+      <p class="lead text-muted">A Visual Journey Through Sustainable Mushroom Farming</p>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <!-- Navigation Arrows -->
+        <button class="carousel-nav prev" (click)="prevSlide()">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <button class="carousel-nav next" (click)="nextSlide()">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+        <!-- Carousel Track -->
+        <div class="carousel-track" #carouselTrack>
+          <div class="carousel-slide" *ngFor="let img of galleryImages; let i = index">
+            <div class="slide-card">
+              <div class="slide-image">
+                <img [src]="img.image"
+                     [alt]="img.title"
+                     class="slide-img"
+                     (error)="onImageError($event)">
+                <div class="slide-overlay"></div>
+              </div>
+              <div class="slide-content">
+                <div class="slide-header">
+                  <span class="slide-badge">{{img.category}}</span>
+                  <span class="slide-count">{{i + 1}}/{{galleryImages.length}}</span>
+                </div>
+                <h3 class="slide-title">{{img.title}}</h3>
+                <p class="slide-description">{{img.description}}</p>
+                <div class="slide-indicators">
+                  <div *ngFor="let item of galleryImages; let dotIndex = index"
+                       class="indicator-dot"
+                       [class.active]="currentSlide === dotIndex"
+                       (click)="goToSlide(dotIndex)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail Navigation -->
+      <div class="thumbnail-nav">
+        <div *ngFor="let img of galleryImages; let i = index"
+             class="thumbnail-item"
+             [class.active]="currentSlide === i"
+             (click)="goToSlide(i)">
+          <div class="thumbnail-img">
+            <img [src]="img.image"
+                 [alt]="img.title + ' thumbnail'"
+                 (error)="onImageError($event)">
+          </div>
+          <span class="thumbnail-label">{{img.title}}</span>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="text-center mt-5">
+        <div class="cta-box p-4 rounded-3">
+          <h4 class="text-success mb-3">Want to see more?</h4>
+          <p class="text-muted mb-4">Explore our complete farming journey in the gallery</p>
+          <a routerLink="/gallery" class="btn btn-success btn-lg px-5 py-3">
+            <i class="bi bi-images me-2"></i>View Full Gallery
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Contact CTA -->
+<section class="py-5 bg-success text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h3 class="mb-2">Ready to Order Fresh Oyster Mushrooms?</h3>
+        <p class="mb-0">Contact us today for the freshest mushrooms delivered to your doorstep.</p>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="tel:7631177171" class="btn btn-light btn-lg">
+          <i class="bi bi-telephone-fill me-2"></i>Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+

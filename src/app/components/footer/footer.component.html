@@ -1,0 +1,233 @@
+<footer class="footer bg-dark text-white pt-5 pb-4">
+  <div class="container">
+    <!-- Main Footer Content -->
+    <div class="row g-5">
+      <!-- Company Info -->
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-about mb-4">
+          <a routerLink="/" class="footer-brand d-flex align-items-center mb-4 text-decoration-none">
+            <i class="bi bi-mushroom fs-2 text-success me-2"></i>
+            <span class="h4 fw-bold text-white mb-0">Trisyam Farms</span>
+          </a>
+          <p class="footer-description text-light mb-4">
+            Fresh Oyster Mushrooms grown with care using sustainable and hygienic farming practices.
+            Delivering nutrition and quality directly from our farm to your table.
+          </p>
+
+          <!-- Certifications - FIXED VISIBILITY -->
+          <div class="certifications mb-4">
+            <h6 class="text-success mb-3">Our Certifications</h6>
+            <div class="certification-tags">
+              <div class="certification-item" *ngFor="let cert of certifications">
+                <i class="bi bi-check-circle-fill text-success me-1"></i>
+                <span>{{cert}}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="newsletter">
+            <h6 class="text-success mb-3">Stay Updated</h6>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Email">
+              <button class="btn btn-success" type="button">
+                <i class="bi bi-send"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-links mb-4">
+          <h5 class="text-success mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li *ngFor="let link of quickLinks" class="mb-3">
+              <a [routerLink]="link.path" class="text-white text-decoration-none d-flex align-items-center footer-link">
+                <i class="bi {{link.icon}} me-2 text-success"></i>
+                {{link.label}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Services Section - UPDATED -->
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-services mb-4">
+          <h5 class="text-success mb-4">Our Services</h5>
+          <div class="services-list">
+            <div *ngFor="let service of services" class="service-item mb-3">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill text-success me-2 flex-shrink-0 mt-1"></i>
+                <div class="service-content">
+                  <h6 class="text-light mb-1">{{service.label}}</h6>
+                  <small class="text-muted">{{service.description}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-contact mb-4">
+          <h5 class="text-success mb-4">Contact Info</h5>
+          <ul class="list-unstyled text-light">
+            <li class="mb-4">
+              <div class="d-flex">
+                <i class="bi bi-geo-alt-fill text-success me-3 mt-1"></i>
+                <div>
+                  <h6 class="mb-1">Farm Address</h6>
+                  <p class="mb-0 text-light">{{contactInfo.address}}</p>
+                </div>
+              </div>
+            </li>
+            <li class="mb-4">
+              <div class="d-flex">
+                <i class="bi bi-telephone-fill text-success me-3 mt-1"></i>
+                <div>
+                  <h6 class="mb-1">Phone / WhatsApp</h6>
+                  <a href="tel:{{contactInfo.phone}}" class="text-white text-decoration-none d-block">
+                    {{contactInfo.phone}}
+                  </a>
+                  <a href="https://wa.me/{{contactInfo.whatsapp}}"
+                     class="text-white text-decoration-none d-block"
+                     target="_blank">
+                    WhatsApp Chat
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="mb-4">
+              <div class="d-flex">
+                <i class="bi bi-envelope-fill text-success me-3 mt-1"></i>
+                <div>
+                  <h6 class="mb-1">Email Address</h6>
+                  <a href="mailto:{{contactInfo.email}}" class="text-white text-decoration-none">
+                    {{contactInfo.email}}
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex">
+                <i class="bi bi-clock-fill text-success me-3 mt-1"></i>
+                <div>
+                  <h6 class="mb-1">Business Hours</h6>
+                  <p class="mb-0 text-light">{{contactInfo.hours}}</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="bg-light my-4">
+
+    <!-- Social Media & Copyright -->
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <!-- Social Media -->
+        <div class="social-media">
+          <h6 class="text-success mb-3">Follow Us:</h6>
+          <div class="d-flex flex-wrap gap-3">
+            <a *ngFor="let social of socialLinks"
+               [href]="social.url"
+               [title]="social.label"
+               class="social-icon d-flex align-items-center justify-content-center"
+               [style.backgroundColor]="social.color"
+               target="_blank">
+              <i class="bi {{social.icon}}"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- Payment Methods -->
+        <div class="payment-methods mb-3">
+          <h6 class="text-success mb-3">Payment Methods:</h6>
+          <div class="d-flex flex-wrap gap-2">
+            <div class="payment-icon">
+              <i class="bi bi-cash-coin"></i>
+              <span>Cash</span>
+            </div>
+            <div class="payment-icon">
+              <i class="bi bi-phone"></i>
+              <span>UPI</span>
+            </div>
+            <div class="payment-icon">
+              <i class="bi bi-bank"></i>
+              <span>Bank Transfer</span>
+            </div>
+            <div class="payment-icon">
+              <i class="bi bi-credit-card"></i>
+              <span>Cards</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="bg-light my-4">
+
+    <!-- Copyright & Bottom Bar -->
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <div class="copyright">
+          <p class="mb-0 text-light">
+            &copy; {{currentYear}} Trisyam Farms. All Rights Reserved.
+          </p>
+          <small class="text-muted">
+            Fresh Oyster Mushrooms | Naturally Grown | Farm-to-Table
+          </small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="footer-bottom-links d-flex flex-wrap justify-content-md-end gap-3">
+          <a routerLink="/privacy" class="text-white text-decoration-none">Privacy Policy</a>
+          <a routerLink="/terms" class="text-white text-decoration-none">Terms of Service</a>
+          <a routerLink="/sitemap" class="text-white text-decoration-none">Sitemap</a>
+          <a href="http://{{contactInfo.website}}"
+             class="text-success text-decoration-none fw-bold"
+             target="_blank">
+            {{contactInfo.website}}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <div class="text-center mt-4">
+      <a href="#top" class="back-to-top d-inline-flex align-items-center justify-content-center text-decoration-none">
+        <i class="bi bi-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/917631177171"
+     class="whatsapp-button d-flex align-items-center justify-content-center"
+     target="_blank"
+     title="Chat on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+</div>
+
+<!-- Call Float Button -->
+<div class="call-float">
+  <a href="tel:7631177171"
+     class="call-button d-flex align-items-center justify-content-center"
+     title="Call Now">
+    <i class="bi bi-telephone-fill"></i>
+  </a>
+</div>

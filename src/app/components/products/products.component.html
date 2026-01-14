@@ -1,0 +1,285 @@
+<!-- Product Hero -->
+<section class="product-hero py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="position-relative">
+          <img src="assets/images/gallery/farm-overview.png"
+               alt="Fresh Oyster Mushrooms"
+               class="img-fluid rounded shadow-lg product-image">
+          <div class="product-badge bg-success text-white p-3 rounded position-absolute top-0 start-0 translate-middle">
+            <h5 class="mb-0">100% Fresh</h5>
+            <p class="mb-0">Daily Harvest</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-success mb-3">
+          Premium Oyster Mushrooms
+        </h1>
+        <p class="lead text-dark mb-4">
+          Our Oyster Mushrooms are known for their excellent taste, high nutritional value,
+          and numerous health benefits. They are a perfect addition to any healthy diet.
+        </p>
+
+        <div class="features mb-4">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                <div>
+                  <h6 class="mb-0">Chemical-Free</h6>
+                  <small class="text-muted">No pesticides used</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                <div>
+                  <h6 class="mb-0">Fresh Daily</h6>
+                  <small class="text-muted">Harvested every morning</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                <div>
+                  <h6 class="mb-0">Hygienic Packing</h6>
+                  <small class="text-muted">Food-grade packaging</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                <div>
+                  <h6 class="mb-0">Quick Delivery</h6>
+                  <small class="text-muted">Same day dispatch</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3">
+          <a href="tel:7631177171" class="btn btn-success btn-lg">
+            <i class="bi bi-telephone-fill me-2"></i>Order Now
+          </a>
+          <a href="#pricing" class="btn btn-outline-success btn-lg">
+            View Pricing
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Health Benefits -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Health Benefits</h2>
+      <p class="text-muted">Why Oyster Mushrooms are good for you</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let benefit of benefits">
+        <div class="card h-100 border-0 shadow-sm card-hover">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start">
+              <div class="icon-wrapper bg-success text-white me-3 flex-shrink-0">
+                <i class="bi {{benefit.icon}} fs-4"></i>
+              </div>
+              <div>
+                <h5 class="card-title text-success mb-2">{{benefit.title}}</h5>
+                <p class="card-text text-muted mb-0">{{benefit.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Available For -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Available For</h2>
+      <p class="text-muted">We cater to various customer needs</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" *ngFor="let customer of customers">
+        <div class="card h-100 border-0 shadow-sm text-center card-hover">
+          <div class="card-body p-4">
+            <div class="customer-icon mb-3 mx-auto">
+              <i class="bi {{customer.icon}} text-success fs-1"></i>
+            </div>
+            <h5 class="card-title text-success mb-2">{{customer.title}}</h5>
+            <p class="card-text text-muted">{{customer.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Varieties -->
+<section class="py-5 bg-light" id="varieties">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Our Varieties</h2>
+      <p class="text-muted">Different types of Oyster Mushrooms we cultivate</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" *ngFor="let variety of varieties">
+        <div class="card h-100 border-0 shadow-sm card-hover">
+          <div class="card-body p-4 text-center">
+            <div class="variety-image mb-3 mx-auto rounded-circle {{variety.color}}" style="width: 100px; height: 100px;"></div>
+            <h5 class="card-title text-success mb-2">{{variety.name}}</h5>
+            <p class="card-text text-muted">{{variety.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="py-5" id="pricing">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Pricing & Packages</h2>
+      <p class="text-muted">Fresh mushrooms at competitive prices</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-success pricing-card">
+          <div class="card-header bg-success text-white text-center py-4">
+            <h4 class="mb-0">Retail Pack</h4>
+          </div>
+          <div class="card-body p-4 text-center">
+            <div class="price mb-4">
+              <span class="h2 text-success">₹150</span>
+              <span class="text-muted">/ 500g</span>
+            </div>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Fresh daily harvest</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Hygienic packaging</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Home delivery available</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Cash on delivery</li>
+            </ul>
+            <a href="tel:7631177171" class="btn btn-outline-success w-100">
+              Order Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-success pricing-card popular">
+          <div class="card-header bg-success text-white text-center py-4 position-relative">
+            <span class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle px-3 py-2 rounded-pill">
+              Most Popular
+            </span>
+            <h4 class="mb-0">Commercial Pack</h4>
+          </div>
+          <div class="card-body p-4 text-center">
+            <div class="price mb-4">
+              <span class="h2 text-success">₹250</span>
+              <span class="text-muted">/ kg</span>
+            </div>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Premium quality</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Bulk discounts available</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Regular supply</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Free delivery</li>
+            </ul>
+            <a href="tel:7631177171" class="btn btn-success w-100">
+              Order Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-success pricing-card">
+          <div class="card-header bg-success text-white text-center py-4">
+            <h4 class="mb-0">Wholesale Pack</h4>
+          </div>
+          <div class="card-body p-4 text-center">
+            <div class="price mb-4">
+              <span class="h2 text-success">Custom</span>
+              <span class="text-muted">Pricing</span>
+            </div>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Large quantities</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Custom packaging</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Priority delivery</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Monthly contracts</li>
+            </ul>
+            <a href="tel:7631177171" class="btn btn-outline-success w-100">
+              Contact for Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Storage Tips -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="assets/images/gallery/cultivation-chamber.png"
+             alt="Mushroom Storage Tips"
+             class="img-fluid rounded shadow">
+      </div>
+      <div class="col-lg-6">
+        <h3 class="text-success mb-4">Storage & Cooking Tips</h3>
+        <div class="accordion" id="storageTips">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tip1">
+                Proper Storage
+              </button>
+            </h2>
+            <div id="tip1" class="accordion-collapse collapse show" data-bs-parent="#storageTips">
+              <div class="accordion-body">
+                Store in a paper bag in the refrigerator. Avoid plastic bags as they trap moisture.
+                Use within 3-5 days for best freshness.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tip2">
+                Cleaning Tips
+              </button>
+            </h2>
+            <div id="tip2" class="accordion-collapse collapse" data-bs-parent="#storageTips">
+              <div class="accordion-body">
+                Wipe with a damp cloth or use a soft brush. Avoid soaking in water as mushrooms absorb moisture.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tip3">
+                Cooking Methods
+              </button>
+            </h2>
+            <div id="tip3" class="accordion-collapse collapse" data-bs-parent="#storageTips">
+              <div class="accordion-body">
+                Great for stir-fries, soups, curries, grilling, or sautéing. Cook on medium-high heat
+                to bring out their natural flavors.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,327 @@
+<!-- Contact Hero -->
+<section class="contact-hero py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold text-success mb-3">Contact Us</h1>
+      <p class="lead text-dark">Get fresh Oyster Mushrooms delivered to your doorstep</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Content -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Contact Information -->
+      <div class="col-lg-5">
+        <div class="contact-info-card">
+          <h3 class="text-success mb-4">Get In Touch</h3>
+
+          <div class="contact-item mb-4">
+            <div class="d-flex align-items-start">
+              <div class="contact-icon bg-success text-white rounded-circle p-3 me-3">
+                <i class="bi bi-geo-alt fs-4"></i>
+              </div>
+              <div>
+                <h5 class="text-success mb-2">Farm Address</h5>
+                <p class="text-muted mb-0">{{contactInfo.address}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item mb-4">
+            <div class="d-flex align-items-start">
+              <div class="contact-icon bg-success text-white rounded-circle p-3 me-3">
+                <i class="bi bi-telephone fs-4"></i>
+              </div>
+              <div>
+                <h5 class="text-success mb-2">Phone & WhatsApp</h5>
+                <a href="tel:{{contactInfo.phone}}" class="d-block text-decoration-none text-dark mb-1">
+                  <i class="bi bi-phone me-2"></i>{{contactInfo.phone}}
+                </a>
+                <a href="https://wa.me/{{contactInfo.whatsapp}}"
+                   class="d-block text-decoration-none text-dark"
+                   target="_blank">
+                  <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item mb-4">
+            <div class="d-flex align-items-start">
+              <div class="contact-icon bg-success text-white rounded-circle p-3 me-3">
+                <i class="bi bi-envelope fs-4"></i>
+              </div>
+              <div>
+                <h5 class="text-success mb-2">Email</h5>
+                <a href="mailto:{{contactInfo.email}}"
+                   class="text-decoration-none text-dark">
+                  {{contactInfo.email}}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item mb-4">
+            <div class="d-flex align-items-start">
+              <div class="contact-icon bg-success text-white rounded-circle p-3 me-3">
+                <i class="bi bi-clock fs-4"></i>
+              </div>
+              <div>
+                <h5 class="text-success mb-2">Business Hours</h5>
+                <p class="text-muted mb-0">Monday - Sunday: {{contactInfo.hours}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="d-flex align-items-start">
+              <div class="contact-icon bg-success text-white rounded-circle p-3 me-3">
+                <i class="bi bi-globe fs-4"></i>
+              </div>
+              <div>
+                <h5 class="text-success mb-2">Website</h5>
+                <a href="http://{{contactInfo.website}}"
+                   class="text-decoration-none text-dark"
+                   target="_blank">
+                  {{contactInfo.website}}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="mt-5">
+            <h5 class="text-success mb-3">Connect With Us</h5>
+            <div class="d-flex gap-3">
+              <a *ngFor="let social of socialLinks"
+                 [href]="social.url"
+                 [title]="social.label"
+                 class="social-link rounded-circle d-flex align-items-center justify-content-center"
+                 target="_blank">
+                <i class="bi {{social.icon}} {{social.color}} fs-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inquiry Form -->
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-lg">
+          <div class="card-body p-5">
+            <h3 class="text-success mb-4">Quick Inquiry</h3>
+            <p class="text-muted mb-4">
+              Fill out the form below and we'll get back to you within 24 hours.
+            </p>
+
+            <!-- Success Message -->
+            <div *ngIf="submitted" class="alert alert-success alert-dismissible fade show" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              Thank you for your inquiry! We'll contact you soon.
+              <button type="button" class="btn-close" (click)="submitted = false"></button>
+            </div>
+
+            <form #inquiryForm="ngForm" (ngSubmit)="onSubmit()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Full Name *</label>
+                  <input type="text"
+                         class="form-control"
+                         id="name"
+                         [(ngModel)]="inquiry.name"
+                         name="name"
+                         required
+                         placeholder="Enter your full name">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone Number *</label>
+                  <input type="tel"
+                         class="form-control"
+                         id="phone"
+                         [(ngModel)]="inquiry.phone"
+                         name="phone"
+                         required
+                         placeholder="Enter your phone number">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email"
+                         class="form-control"
+                         id="email"
+                         [(ngModel)]="inquiry.email"
+                         name="email"
+                         placeholder="Enter your email address">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="customerType" class="form-label">I am a *</label>
+                  <select class="form-select"
+                          id="customerType"
+                          [(ngModel)]="inquiry.customerType"
+                          name="customerType"
+                          required>
+                    <option value="" disabled selected>Select customer type</option>
+                    <option *ngFor="let type of customerTypes" [value]="type.value">
+                      {{type.label}}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="quantity" class="form-label">Required Quantity</label>
+                  <select class="form-select"
+                          id="quantity"
+                          [(ngModel)]="inquiry.quantity"
+                          name="quantity">
+                    <option value="" selected>Select quantity</option>
+                    <option *ngFor="let qty of quantities" [value]="qty.value">
+                      {{qty.label}}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label for="requirement" class="form-label">Your Requirement *</label>
+                  <textarea class="form-control"
+                            id="requirement"
+                            rows="4"
+                            [(ngModel)]="inquiry.requirement"
+                            name="requirement"
+                            required
+                            placeholder="Tell us about your requirement..."></textarea>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           id="terms"
+                           required>
+                    <label class="form-check-label" for="terms">
+                      I agree to receive communication from Trisyam Farms
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit"
+                          class="btn btn-success btn-lg w-100"
+                          [disabled]="!inquiryForm.form.valid">
+                    <i class="bi bi-send me-2"></i>Submit Inquiry
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Quick Contact -->
+        <div class="mt-4">
+          <div class="alert alert-success" role="alert">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-info-circle-fill fs-4 me-3"></i>
+              <div>
+                <h5 class="alert-heading mb-1">Need immediate assistance?</h5>
+                <p class="mb-0">
+                  Call us directly at
+                  <a href="tel:7631177171" class="alert-link">7631177171</a>
+                  or WhatsApp us for instant response.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Find Our Farm</h2>
+      <p class="text-muted">Visit us at our farm location in Sangli</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="ratio ratio-16x9 rounded shadow-lg overflow-hidden">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.799714650993!2d74.56466017484683!3d16.76956212274253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1a9547d33f88d%3A0x231cd551da4914cd!2sTasgaon%2C%20Maharashtra%20416312!5e0!3m2!1sen!2sin!4v1700000000000"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="mt-4 text-center">
+          <a href="https://maps.google.com/?q=Tasgaon–Kavth+Mahankal+Road,+Yogewadi,+Sangli+416408"
+             class="btn btn-outline-success"
+             target="_blank">
+            <i class="bi bi-geo-alt me-2"></i>Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-success mb-3">Frequently Asked Questions</h2>
+      <p class="text-muted">Find answers to common questions</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+            <h2 class="accordion-header">
+              <button class="accordion-button"
+                      [class.collapsed]="i !== 0"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#faq' + i"
+                      [attr.aria-expanded]="i === 0 ? 'true' : 'false'"
+                      [attr.aria-controls]="'faq' + i">
+                {{faq.question}}
+              </button>
+            </h2>
+            <div [id]="'faq' + i"
+                 class="accordion-collapse collapse"
+                 [class.show]="i === 0"
+                 data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                {{faq.answer}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Contact Banner -->
+<section class="py-5 bg-success text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h3 class="mb-2">Ready to place your order?</h3>
+        <p class="mb-0">Call us now for the freshest Oyster Mushrooms</p>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="tel:7631177171" class="btn btn-light btn-lg">
+          <i class="bi bi-telephone-fill me-2"></i>Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
