@@ -14,9 +14,9 @@ export class HeaderComponent {
 
   navItems = [
     { path: '/', label: 'Home', icon: 'bi-house' },
-    { path: '/about', label: 'About Us', icon: 'bi-info-circle' },
     { path: '/products', label: 'Our Product', icon: 'bi-shop' },
     { path: '/gallery', label: 'Gallery', icon: 'bi-images' },
+    { path: '/about', label: 'About Us', icon: 'bi-info-circle' },
     { path: '/contact', label: 'Contact Us', icon: 'bi-telephone' }
   ];
 
