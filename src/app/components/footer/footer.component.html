@@ -53,21 +53,22 @@
         </div>
       </div>
 
-      <!-- Services Section - UPDATED -->
+      <!-- Services Section - FIXED RESPONSIVE DESIGN -->
       <div class="col-lg-3 col-md-6">
         <div class="footer-services mb-4">
           <h5 class="text-success mb-4">Our Services</h5>
-          <div class="services-list">
-            <div *ngFor="let service of services" class="service-item mb-3">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-check-circle-fill text-success me-2 flex-shrink-0 mt-1"></i>
+          <ul class="list-unstyled">
+            <li *ngFor="let service of services" class="mb-3">
+              <a href="javascript:void(0)"
+                 class="text-white text-decoration-none d-flex align-items-center service-link">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
                 <div class="service-content">
-                  <h6 class="text-light mb-1">{{service.label}}</h6>
+                  <span class="d-block mb-1">{{service.label}}</span>
                   <small class="text-muted">{{service.description}}</small>
                 </div>
-              </div>
-            </div>
-          </div>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
