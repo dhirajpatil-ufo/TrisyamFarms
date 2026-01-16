@@ -1,30 +1,60 @@
 .navbar {
   padding: 0.75rem 0;
-  
+
   .navbar-brand {
     padding: 0;
-    
+
     .logo-img {
       transition: transform 0.3s ease;
       height: 150px;
       width: 200px;
-      position:absolute;
-      
+      position: absolute;
+      /* Responsive logo adjustments */
+      @media (max-width: 1200px) {
+        height: 130px;
+        width: 170px;
+      }
+
+      @media (max-width: 992px) {
+        height: 130px;
+        width: 170px;
+      }
+
+      @media (max-width: 768px) {
+        height: 130px;
+        width: 170px;
+      }
+
+      @media (max-width: 576px) {
+        height: 130px;
+        width: 170px;
+      }
+
+      @media (max-width: 400px) {
+        height: 130px;
+        width: 170px;
+      }
+
+      @media (max-width: 350px) {
+        height: 130px;
+        width: 170px;
+      }
+
       &:hover {
         transform: scale(1.05);
       }
     }
-    
+
     .brand-text {
       line-height: 1.2;
-      
+
       .brand-name {
         font-size: 1.3rem;
         font-weight: 700;
         color: #28a745;
         transition: color 0.3s;
       }
-      
+
       .brand-tagline {
         font-size: 0.7rem;
         font-weight: 500;
@@ -32,30 +62,30 @@
         margin-top: -2px;
       }
     }
-    
+
     &:hover {
       .brand-name {
         color: #218838;
       }
     }
   }
-  
+
   .nav-link {
     font-weight: 500;
     margin: 0 0.5rem;
     color: #333;
     transition: all 0.3s;
-    
+
     &:hover {
       color: #28a745;
       transform: translateY(-2px);
     }
-    
+
     &.active {
       color: #28a745;
       font-weight: 600;
       position: relative;
-      
+
       &::after {
         content: '';
         position: absolute;
@@ -73,15 +103,11 @@
 @media (max-width: 991.98px) {
   .navbar {
     .navbar-brand {
-      .logo-img {
-        height: 35px;
-      }
-      
       .brand-text {
         .brand-name {
           font-size: 1.2rem;
         }
-        
+
         .brand-tagline {
           display: none !important;
         }
@@ -93,10 +119,6 @@
 @media (max-width: 576px) {
   .navbar {
     .navbar-brand {
-      .logo-img {
-        height: 30px;
-      }
-      
       .brand-text {
         .brand-name {
           font-size: 1.1rem;
