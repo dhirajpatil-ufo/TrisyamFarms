@@ -1,41 +1,18 @@
 {
-  "name": "trisyam-farms",
+  "name": "Trishyam-farms",
   "version": "0.0.0",
-  "homepage": "https://dhirajpatil-ufo.github.io/TrisyamFarms",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod": "ng serve --configuration production",
     "build": "ng build",
+    "build:dev": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-
-    "build:dev": "ng build --configuration development",
-    "build:prod": "ng build --configuration production",
-    "predeploy": "npm run build:prod",
-
-    "deploy": "npx angular-cli-ghpages --dir=dist/trisyam-farms/browser --repo=https://github.com/dhirajpatil-ufo/TrisyamFarms.git --branch=gh-pages --name='Dhiraj Patil' --email=dhiraj.patil@ufomoviez.com --no-silent --cname=dhirajpatil-ufo.github.io/TrisyamFarms",
-
-    "deploy:angular": "ng deploy",
-
-    "deploy:manual": "npm run build:prod && cd dist/trisyam-farms/browser && git init && git add . && git commit -m 'Deploy: $(date)' && git branch -M gh-pages && git remote add origin https://github.com/dhirajpatil-ufo/TrisyamFarms.git && git push -f origin gh-pages",
-
-    "deploy:windows": "npm run build:prod && cd dist/trisyam-farms/browser && git init && git add . && git commit -m \"Deploy: %date% %time%\" && git branch -M gh-pages && git remote add origin https://github.com/dhirajpatil-ufo/TrisyamFarms.git && git push -f origin gh-pages",
-
-    "deploy:gh-pages": "npx gh-pages -d dist/trisyam-farms/browser -t -r https://github.com/dhirajpatil-ufo/TrisyamFarms.git",
-
-    "deploy:simple": "npm run build:prod && npx angular-cli-ghpages --dir=dist/trisyam-farms/browser",
-
-    "deploy:force": "npm run build:prod && npx angular-cli-ghpages --dir=dist/trisyam-farms/browser --repo=https://github.com/dhirajpatil-ufo/TrisyamFarms.git --branch=gh-pages --no-silent --no-dotfiles --dry-run=false",
-
-    "clean": "rimraf dist .angular",
+    "clean": "rimraf dist",
     "clean:all": "npm run clean && rimraf node_modules package-lock.json",
-    "reinstall": "npm run clean:all && npm install",
-
-    "serve:prod": "http-server dist/trisyam-farms/browser -p 8080 -c-1",
-
-    "postinstall": "echo 'Installation complete! Use npm start to run the app.'"
+    "reinstall": "npm run clean:all && npm install"
   },
   "private": true,
   "dependencies": {
@@ -57,9 +34,6 @@
     "@angular/cli": "^17.3.17",
     "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
-    "angular-cli-ghpages": "^2.0.0",
-    "gh-pages": "^6.1.1",
-    "http-server": "^14.1.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -69,25 +43,14 @@
     "rimraf": "^5.0.5",
     "typescript": "~5.4.2"
   },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
-  },
   "keywords": [
     "angular",
     "bootstrap",
     "agriculture",
     "farm",
-    "trisyam-farms"
+    "Trishyam-farms"
   ],
   "author": "Dhiraj Patil <dhirajpatil.ufo@gmail.com>",
   "license": "MIT",
-  "description": "Trisyam Farms - Modern Agricultural Website",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dhirajpatil-ufo/TrisyamFarms.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dhirajpatil-ufo/TrisyamFarms/issues"
-  }
+  "description": "Trishyam Farms - Modern Agricultural Website"
 }
