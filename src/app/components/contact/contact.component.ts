@@ -16,7 +16,7 @@ export class ContactComponent {
     whatsapp: '917631177171',
     email: 'trishyamfarms@gmail.com',
     hours: '9:00 AM – 7:00 PM',
-    website: 'www.trisyamfarms.com'
+    website: 'www.Trishyamfarms.com'
   };
 
   inquiry = {

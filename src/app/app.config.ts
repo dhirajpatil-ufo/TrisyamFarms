@@ -2,12 +2,14 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+// Remove HashLocationStrategy import
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    // Change this to use PathLocationStrategy
+    { provide: LocationStrategy, useClass: PathLocationStrategy }
   ]
 };

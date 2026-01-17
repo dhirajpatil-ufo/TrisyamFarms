@@ -82,7 +82,7 @@ export class GalleryComponent {
       category: 'farm',
       image: 'assets/images/gallery/quality-check.png',
       title: 'Farm Operations',
-      description: 'Day-to-day operations at Trisyam Farms'
+      description: 'Day-to-day operations at Trishyam Farms'
     },
     {
       id: 10,
@@ -122,6 +122,6 @@ export class GalleryComponent {
     console.log('Image failed to load, using placeholder');
     const randomIndex = Math.floor(Math.random() * this.placeholderImages.length);
     event.target.src = this.placeholderImages[randomIndex];
-    event.target.alt = 'Trisyam Farms Mushroom';
+    event.target.alt = 'Trishyam Farms Mushroom';
   }
 }

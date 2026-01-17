@@ -50,7 +50,7 @@ export class FooterComponent {
     whatsapp: '917631177171',
     email: 'trishyamfarms@gmail.com',
     hours: '9:00 AM – 7:00 PM (Mon-Sun)',
-    website: 'www.trisyamfarms.com'
+    website: 'www.trishyamfarms.com'
   };
 
   socialLinks = [

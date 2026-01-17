@@ -132,7 +132,7 @@ export class HomeComponent implements AfterViewInit {
     ];
     const randomIndex = Math.floor(Math.random() * fallbackImages.length);
     event.target.src = fallbackImages[randomIndex];
-    event.target.alt = 'Trisyam Farms Mushroom';
+    event.target.alt = 'Trishyam Farms Mushroom';
   }
 
   ngOnDestroy() {
