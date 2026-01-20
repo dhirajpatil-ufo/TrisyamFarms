@@ -39,6 +39,9 @@
                 <a href="tel:{{contactInfo.phone}}" class="d-block text-decoration-none text-dark mb-1">
                   <i class="bi bi-phone me-2"></i>{{contactInfo.phone}}
                 </a>
+                <a href="tel:{{contactInfo.phone2}}" class="d-block text-decoration-none text-dark mb-1">
+                  <i class="bi bi-phone me-2"></i>{{contactInfo.phone2}}
+                </a>
                 <a href="https://wa.me/{{contactInfo.whatsapp}}"
                    class="d-block text-decoration-none text-dark"
                    target="_blank">
@@ -251,20 +254,39 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <div class="ratio ratio-16x9 rounded shadow-lg overflow-hidden">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.799714650993!2d74.56466017484683!3d16.76956212274253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1a9547d33f88d%3A0x231cd551da4914cd!2sTasgaon%2C%20Maharashtra%20416312!5e0!3m2!1sen!2sin!4v1700000000000"
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15271.068979688288!2d74.7373451697754!3d17.015035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1a9547d33f88d%3A0x231cd551da4914cd!2sTasgaon%2C%20Maharashtra%20416312!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   style="border:0;"
                   allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade">
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Trishyam Farms Location Map">
           </iframe>
         </div>
 
         <div class="mt-4 text-center">
-          <a href="https://maps.google.com/?q=Tasgaon–Kavth+Mahankal+Road,+Yogewadi,+Sangli+416408"
-             class="btn btn-outline-success"
+          <a href="https://www.google.com/maps/search/?api=1&query=17.015035,74.739527"
+             class="btn btn-outline-success me-3"
              target="_blank">
-            <i class="bi bi-geo-alt me-2"></i>Get Directions
+            <i class="bi bi-geo-alt me-2"></i>Open in Google Maps
           </a>
+          <a href="https://maps.google.com/?q=Plot+No.+2106,+Tasgaon Kavthe+Mahankal+Road,+Yogewadi,+District+Sangli,+PIN+416408"
+             class="btn btn-success"
+             target="_blank">
+            <i class="bi bi-compass me-2"></i>Get Directions
+          </a>
+        </div>
+
+        <!-- Coordinates Display -->
+        <div class="mt-3 text-center text-muted small">
+          <div class="d-inline-flex align-items-center bg-light rounded-pill px-3 py-1">
+            <i class="bi bi-geo-fill text-success me-2"></i>
+            <span>Coordinates: 17.015035° N, 74.739527° E</span>
+            <button class="btn btn-sm btn-link text-decoration-none ms-2"
+                    (click)="copyCoordinates('17.015035,74.739527')"
+                    title="Copy coordinates">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

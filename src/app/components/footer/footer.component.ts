@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  isCallMenuOpen = false;
 
   quickLinks = [
     { path: '/', label: 'Home', icon: 'bi-house' },
@@ -45,8 +46,9 @@ export class FooterComponent {
   ];
 
   contactInfo = {
-    address: 'Plot No. 2106, Tasgaon–Kavth Mahankal Road, Yogewadi, District Sangli, PIN – 416408',
+    address: 'Plot No. 2106, Tasgaon Kavthe Mahankal Road, Yogewadi, District Sangli, PIN - 416408',
     phone: '7631177171',
+    phone2: '7379711171',
     whatsapp: '917631177171',
     email: 'trishyamfarms@gmail.com',
     hours: '9:00 AM – 7:00 PM (Mon-Sun)',
@@ -99,4 +101,74 @@ export class FooterComponent {
     'Quality Assured',
     'Sustainable Practices'
   ];
+
+  // Toggle call menu
+  toggleCallMenu(): void {
+    this.isCallMenuOpen = !this.isCallMenuOpen;
+  }
+
+  // Close call menu
+  closeCallMenu(): void {
+    this.isCallMenuOpen = false;
+  }
+
+  // Copy number to clipboard
+  copyNumber(number: string): void {
+    navigator.clipboard.writeText(number).then(() => {
+      // You can replace this with a proper toast notification if you have one
+      const notification = document.createElement('div');
+      notification.className = 'copy-notification';
+      notification.textContent = `✓ Copied ${number} to clipboard!`;
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: slideIn 0.3s ease, fadeOut 0.3s ease 2s forwards;
+      `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification);
+        }
+      }, 2300);
+    }).catch(err => {
+      console.error('Failed to copy number: ', err);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = number;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert(`Copied ${number} to clipboard!`);
+      } catch (e) {
+        alert('Failed to copy number. Please copy manually: ' + number);
+      }
+      document.body.removeChild(textArea);
+    });
+
+    this.closeCallMenu();
+  }
+
+  // Close menu when clicking outside
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const callFloat = document.querySelector('.call-float');
+    if (callFloat && !callFloat.contains(event.target as Node)) {
+      this.closeCallMenu();
+    }
+  }
+
+  // Optional: Add keydown listener for ESC key
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscapeKey(event: KeyboardEvent): void {
+    this.closeCallMenu();
+  }
 }

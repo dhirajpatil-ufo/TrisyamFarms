@@ -11,8 +11,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactComponent {
   contactInfo = {
-    address: 'Plot No. 2106, Tasgaon–Kavth Mahankal Road, Yogewadi, District Sangli, PIN – 416408',
+    address: 'Plot No. 2106, Tasgaon Kavthe Mahankal Road, Yogewadi, District Sangli, PIN - 416408',
     phone: '7631177171',
+    phone2: '7379711171',
     whatsapp: '917631177171',
     email: 'trishyamfarms@gmail.com',
     hours: '9:00 AM – 7:00 PM',
@@ -90,5 +91,45 @@ export class ContactComponent {
         customerType: ''
       };
     }, 3000);
+  }
+  // Add this method to your FooterComponent class
+  copyCoordinates(coords: string): void {
+    navigator.clipboard.writeText(coords).then(() => {
+      const notification = document.createElement('div');
+      notification.className = 'copy-notification';
+      notification.textContent = `✓ Copied coordinates to clipboard!`;
+      notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: slideIn 0.3s ease, fadeOut 0.3s ease 2s forwards;
+    `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification);
+        }
+      }, 2300);
+    }).catch(err => {
+      console.error('Failed to copy coordinates: ', err);
+      const textArea = document.createElement('textarea');
+      textArea.value = coords;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert(`Copied coordinates to clipboard!`);
+      } catch (e) {
+        alert('Failed to copy coordinates. Please copy manually: ' + coords);
+      }
+      document.body.removeChild(textArea);
+    });
   }
 }

@@ -94,6 +94,9 @@
                   <a href="tel:{{contactInfo.phone}}" class="text-white text-decoration-none d-block">
                     {{contactInfo.phone}}
                   </a>
+                  <a href="tel:{{contactInfo.phone2}}" class="text-white text-decoration-none d-block">
+                    {{contactInfo.phone2}}
+                  </a>
                   <a href="https://wa.me/{{contactInfo.whatsapp}}"
                      class="text-white text-decoration-none d-block"
                      target="_blank">
@@ -224,11 +227,69 @@
   </a>
 </div>
 
-<!-- Call Float Button -->
-<div class="call-float">
-  <a href="tel:7631177171"
-     class="call-button d-flex align-items-center justify-content-center"
-     title="Call Now">
-    <i class="bi bi-telephone-fill"></i>
-  </a>
+<!-- Call Float Button with Menu -->
+<div class="call-float" (clickOutside)="closeCallMenu()">
+  <div class="call-button-wrapper">
+    <!-- Main Call Button -->
+    <button class="call-button-main d-flex align-items-center justify-content-center"
+            (click)="toggleCallMenu()"
+            [class.active]="isCallMenuOpen"
+            title="Call Us">
+      <i class="bi bi-telephone-fill"></i>
+    </button>
+
+    <!-- Call Menu -->
+    <div class="call-menu" [class.show]="isCallMenuOpen">
+      <div class="call-menu-header">
+        <h6 class="mb-0">Call Us</h6>
+        <button class="close-menu-btn" (click)="closeCallMenu()">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+
+      <div class="call-options">
+        <!-- Primary Number -->
+        <a href="tel:7631177171" class="call-option primary" (click)="closeCallMenu()">
+          <div class="option-icon">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div class="option-content">
+            <div class="option-title">Primary Number</div>
+            <div class="option-number">7631177171</div>
+            <small class="option-desc">Main contact line</small>
+          </div>
+          <div class="option-action">
+            <i class="bi bi-chevron-right"></i>
+          </div>
+        </a>
+
+        <!-- Secondary Number -->
+        <a href="tel:7379711171" class="call-option secondary" (click)="closeCallMenu()">
+          <div class="option-icon">
+            <i class="bi bi-telephone-plus"></i>
+          </div>
+          <div class="option-content">
+            <div class="option-title">Secondary Number</div>
+            <div class="option-number">7379711171</div>
+            <small class="option-desc">Alternative contact</small>
+          </div>
+          <div class="option-action">
+            <i class="bi bi-chevron-right"></i>
+          </div>
+        </a>
+
+        <!-- Copy Number Option -->
+        <div class="copy-options">
+          <button class="copy-btn" (click)="copyNumber('7631177171')">
+            <i class="bi bi-clipboard"></i>
+            Copy Primary
+          </button>
+          <button class="copy-btn" (click)="copyNumber('7379711171')">
+            <i class="bi bi-clipboard"></i>
+            Copy Secondary
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
